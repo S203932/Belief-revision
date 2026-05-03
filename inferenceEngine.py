@@ -1,4 +1,4 @@
-from sympy.logic.boolalg import And, Or, Not, Implies, Equivalent, to_cnf
+from sympy.logic.boolalg import And, Or, Not, to_cnf
 
 class InferenceEngine:
     
@@ -13,7 +13,7 @@ class InferenceEngine:
             cnf = to_cnf(b)
             clauses.extend(self.extract_clauses(cnf))
 
-        # If contradiction → entails
+        # If contradiction that means it entails
         return self.resolution_unsat(clauses)
 
     def extract_clauses(self,expr):
@@ -41,7 +41,7 @@ class InferenceEngine:
     
     def resolution_unsat(self,clauses):
         '''
-        returns True if UNSAT (contradiction found)
+        returns True if unsatisfiable (contradiction found)
         '''
 
         # Use frozenset so clauses can be stored in a set
@@ -66,7 +66,7 @@ class InferenceEngine:
 
             # No clauses means no contradiction
             if new.issubset(clauses):
-                return False  # SAT
+                return False  # satisfiable
 
             clauses.update(new)
 

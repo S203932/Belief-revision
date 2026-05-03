@@ -1,14 +1,12 @@
 from revision import symbol_table, parse_formula
 from beliefBase import BeliefBase
 
-# BeliefBase 
+# BeliefBase object 
 beliefBase:BeliefBase = BeliefBase()
-
-# At the moment you can only add, later also add contraction
 
 userInput = ""
 
-print("Please input desired believes.\nEach line is its own belief.\nFinish input by writing \"DONE\"\n")
+print("Please input desired believes.\nEach line is its own belief followed by priority(comma seperation).\nFinish input by writing \"DONE\"\n")
 
 # User input to contiously add new beliefs
 while userInput != "DONE":
@@ -17,15 +15,21 @@ while userInput != "DONE":
 
     if userInput == "DONE":
         break
+    
+    # Belief is composed of formula and priority, they're comma separated
+    formula_str, priority_str = userInput.split(",")
 
-    beliefBase.add(parse_formula(userInput))
+    #Parsing is done by revision class
+    beliefBase.add(parse_formula(formula_str.strip()), int(priority_str.strip()))
 
+    # Showing the outcome
     print(beliefBase)
 
+    #Showing symbols being used
     print(f'Symbol Table: {symbol_table}')
 
 
-#Final state
+#Final state when ending the program
 
 print(beliefBase)
 

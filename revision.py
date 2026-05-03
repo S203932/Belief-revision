@@ -1,14 +1,10 @@
-from sympy import symbols,Basic, true, false
-from sympy.logic.boolalg import And, Or, Not, Implies, Equivalent
+from sympy import symbols
 from sympy.parsing.sympy_parser import parse_expr
 import re
-# Importing everything at the moment
-# Gonna fix this later to only import the correct stuff
 
 
-# This class is for all the methods needed for the revision and computation
-
-
+# This class is for all the methods needed for the revision
+# Using Sympy objects to express the beliefs -> the expressions
 
 # All known symbols will be stored in here
 symbol_table = {}
