@@ -1,34 +1,32 @@
 from revision import symbol_table, parse_formula
+from beliefBase import BeliefBase
 
-# Gonna fix this later to only import the correct stuff
+# BeliefBase 
+beliefBase:BeliefBase = BeliefBase()
 
-# List of user beliefs as a believeSet
-beliefSet =[]
+# At the moment you can only add, later also add contraction
 
 userInput = ""
 
 print("Please input desired believes.\nEach line is its own belief.\nFinish input by writing \"DONE\"\n")
 
-# Add multiple things to the belief set
+# User input to contiously add new beliefs
 while userInput != "DONE":
     # Take input
     userInput = input("Please type input:")
 
     if userInput == "DONE":
         break
-    # Convert to Sympy object and add to the beliefSet
-    beliefSet.append(parse_formula(userInput))
 
-print(f'Belief-set: {beliefSet}')
+    beliefBase.add(parse_formula(userInput))
+
+    print(beliefBase)
+
+    print(f'Symbol Table: {symbol_table}')
+
+
+#Final state
+
+print(beliefBase)
 
 print(f'Symbol Table: {symbol_table}')
-
-# Convert input to CNF
-
-# Convert base to CNF
-
-# Check for contradiction and work towards expansion
-
-# 1. Convert input to CNF 
-# 2. Convert belief base to CNF 
-# 3. Update belief according to logical 
