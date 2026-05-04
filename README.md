@@ -43,6 +43,12 @@ This means that one can say:
 
 And this would result in the belief $Alice\rightarrow Bob$ with a priority value of 4. 
 
+To end the belief base run one should enter `DONE` and the program will exit. 
+
+The belief base only exists in memory, and is empty upon the start of each run. 
+
+The symbols table shows all the symbols, which has currently been used to help the user keep track. 
+Also, for each input it displays how the interaction modified the belief base. 
 
 # How to run the test for the AGM Revision postulates
 
