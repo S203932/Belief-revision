@@ -147,4 +147,20 @@ class BeliefBase:
         return string
     
 
+    ## These methods are primarily used for the unit-tests
+    def formulas(self):
+        return [b.formula for b in self.beliefs]
+
+    def entails(self, formula):
+        return engine.entails(self.formulas(), formula)
+
+    def copy(self):
+        new_bb = BeliefBase()
+        new_bb.beliefs = self.beliefs[:]  # shallow copy is fine
+        return new_bb
+
+    def expand(self, belief):
+        self.beliefs.append(belief)
+    
+
 
