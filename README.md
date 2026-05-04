@@ -22,7 +22,7 @@ All subsets for the belief base are generated, meaning that for n beliefs the nu
 The belief base can be run by running the file `main.py`. 
 
 Each line in the input consists of a `belief, priority`.
-I.e. if you want to add the belief $A->B$ with a priority equal to `5`, then you'd add the following:
+I.e. if you want to add the belief $A\rightarrow B$ with a priority equal to `5`, then you'd add the following:
 
 '''
 A->B,5
@@ -41,11 +41,11 @@ Also, parenthesis are allowed to group.
 Beliefs can be words as well and are defined using regex with all natural letters (upper and lower case).
 This means that one can say: 
 
-'''
-Alice->Bob,4
+'''latex
+Alice\rightarrow Bob,4
 '''
 
-And this would result in the belief $Alice->Bob$ with a priority value of 4. 
+And this would result in the belief $Alice\rightarrow Bob$ with a priority value of 4. 
 
 
 # How to run the test for the AGM Revision postulates
